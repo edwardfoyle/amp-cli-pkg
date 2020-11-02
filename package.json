@@ -1,10 +1,11 @@
 {
-  "name": "codegenexe",
+  "name": "amp-cli-pkg",
   "version": "1.0.0",
-  "description": "POC for a native codegen executable",
+  "description": "POC for a packaged Amplify binary",
   "scripts": {
     "test": "jest",
-    "clean": "rimraf node_modules build out yarn.lock pkg/node_modules pkg/yarn.lock",
+    "clean": "rimraf node_modules yarn.lock",
+    "clean-pkg": "rimraf build out pkg/node_modules pkg/yarn.lock",
     "cli-install": "cd pkg && yarn install --production",
     "cli-transpile": "cd pkg && babel node_modules --copy-files -d ../build/node_modules",
     "cli-pre-pkg": "cp pkg/package.json build/node_modules/package.json",
