@@ -3,7 +3,7 @@
 Contains scripts for packaging the Amplify CLI as a native binary
 
 ## Packaging instructions
-1. If packaging the latest version of the CLI on NPM, skip to step 5
+1. If packaging the latest version of the CLI on NPM, skip to step 6
 2. Start verdaccio locally using https://github.com/aws-amplify/amplify-cli/blob/68315350e52ff9db4c9bffeb6254b70894420333/.circleci/config.base.yml#L96-L99
 3. In your local Amplify CLI repo, replace [this line](https://github.com/aws-amplify/amplify-cli/blob/master/package.json#L31) with `"publish-to-verdaccio": "lerna publish --yes --no-git-tag-version --no-commit-hooks --no-push --exact --dist-tag=latest --conventional-commits",`
 4. Make sure you have built the changes to the Amplify CLI that you want to include (using `yarn dev-build`)
