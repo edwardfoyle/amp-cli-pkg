@@ -8,7 +8,7 @@ Contains scripts for packaging the Amplify CLI as a native binary
 3. In your local Amplify CLI repo, replace [this line](https://github.com/aws-amplify/amplify-cli/blob/master/package.json#L31) with `"publish-to-verdaccio": "lerna publish --yes --no-git-tag-version --no-commit-hooks --no-push --exact --dist-tag=latest --conventional-commits",`
 4. Make sure you have built the changes to the Amplify CLI that you want to include (using `yarn dev-build`)
 5. Run `yarn publish-to-verdaccio`
-  a. This will update package.json and CHANGELOG.md files in the repo. This can be reverted with `git checkout -- packages/*/package.json packages/*/CHANGELOG.md`
+  - This will update package.json and CHANGELOG.md files in the repo. This can be reverted with `git checkout -- packages/*/package.json packages/*/CHANGELOG.md`
 6. Run `yarn && yarn cli-all` in this repository
 7. The binaries will be compiles to the `out` directory
 
@@ -20,7 +20,7 @@ To package a different tag / version of the CLI, update the CLI dependency in pk
 1. Go to https://github.com/aws-amplify/amplify-cli/releases/new to create a new release on GitHub
 2. Attach the 3 binaries in the `out` directory to the release. DO NOT RENAME THEM!
 3. Tag the release as `v<version>-alpha.0` where `<version>` is the semver string returned by running `version` with the packaged CLI being uploaded
-  a. If there is already a published version, increment the 0 at the end of the release tag
+  - If there is already a published version, increment the 0 at the end of the release tag
 4. For release title enter `v4.33.0-alpha.0 (NOT FOR PRODUCTION)`
 5. For the description enter:
 ```
