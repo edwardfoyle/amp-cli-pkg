@@ -1,0 +1,28 @@
+{
+  "name": "codegenexe",
+  "version": "1.0.0",
+  "description": "POC for a native codegen executable",
+  "scripts": {
+    "test": "jest",
+    "clean": "rimraf node_modules build out yarn.lock pkg/node_modules pkg/yarn.lock",
+    "cli-install": "cd pkg && yarn install --production",
+    "cli-transpile": "cd pkg && babel node_modules --copy-files -d ../build/node_modules",
+    "cli-pre-pkg": "cp pkg/package.json build/node_modules/package.json",
+    "cli-pkg": "pkg -t node12-macos-x64,node12-linux-x64,node12-win-x64 build/node_modules --out-path out",
+    "cli-all": "yarn cli-install && yarn cli-transpile && yarn cli-pre-pkg && yarn cli-pkg"
+  },
+  "author": "Amazon Web Services",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-proposal-numeric-separator": "^7.10.4",
+    "@babel/plugin-transform-modules-commonjs": "7.10.4",
+    "@babel/plugin-transform-typescript": "7.10.5",
+    "are-you-es5": "^2.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-preset-minify": "^0.5.1",
+    "handlebars-loader": "^1.7.1",
+    "rimraf": "3.0.2"
+  }
+}
